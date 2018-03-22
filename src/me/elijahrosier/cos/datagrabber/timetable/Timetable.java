@@ -18,11 +18,8 @@ public class Timetable {
 			
 			Element table = doc.selectFirst("#timetable");
 			
-			//System.out.println(doc.html());
-			
 			if(table != null){
 				Elements rows = table.select("tr");
-				System.out.println("Test");
 				
 				for(int i = 0; i < rows.size(); i++){
 					if(i != 0){
@@ -31,9 +28,17 @@ public class Timetable {
 						Elements days = row.select("td");
 						
 						for(int j = 0; j < days.size(); j++){
-							modules[i-1][j] = new TimetableSlot("Something","Something","Something");
+							
+							Element slot = days.get(j).selectFirst(".lecture");
+							if(slot != null){
+								String moduleName = slot.selectFirst("strong").text();
+								String moduleLecturer = slot.selectFirst("span") != null ? slot.selectFirst("span").text() : "Unknown";
+								String moduleLocation = slot.selectFirst(".lectureinfo.room") != null ? slot.selectFirst(".lectureinfo.room").text() : "Unknown";
+								
+								modules[i-1][j] = new TimetableSlot(moduleName, moduleLecturer, moduleLocation);
+							}
+							
 						}
-						
 					}
 				}
 			}
