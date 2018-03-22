@@ -1,5 +1,6 @@
-package me.elijahrosier.cos.datagrabber;
+package test;
 
+import me.elijahrosier.cos.datagrabber.User;
 import me.elijahrosier.cos.datagrabber.exceptions.InvalidLoginException;
 import me.elijahrosier.cos.datagrabber.timetable.Timetable;
 import me.elijahrosier.cos.datagrabber.timetable.TimetableSlot;
