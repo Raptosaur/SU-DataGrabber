@@ -8,7 +8,7 @@ public class TimetableSlot {
 	
 	public TimetableSlot(String moduleName, String lecturer, String location){
 		this.moduleName = moduleName;
-		this.lecturer = moduleName;
+		this.lecturer = lecturer;
 		this.location = location;
 	}
 	
